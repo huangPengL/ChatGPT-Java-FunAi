@@ -4,7 +4,7 @@
 
 - 欢迎来到FunAi的后端仓库，我们使用Java对了现有AGI进行二次开发。
 - 目前是FunAi的第一个版本，已经接入ChatGPT和GPT-4实现一些有意思的应用，详细请见【功能介绍】部分。
-- 目前[FunAi](http://chat4you.space/) 可免费使用😆，欢迎进入[FunAi](http://chat4you.space/)网站一起玩耍吧~
+- 目前[FunAi](http://funai.space/) 可免费使用😆，欢迎进入[FunAi](http://funai.space/)网站一起玩耍吧~
 
 ## 🔰 快速开始
 
