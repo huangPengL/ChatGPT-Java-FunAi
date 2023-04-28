@@ -38,9 +38,9 @@
 
   - TODO: 接入文生图模型（MidJourney / Stable Diffusion Model）
 
-  ![chat-1.png](FunAi-GitHub-readme+55224001-757a-43fd-9e9e-f27b176e5c3e/chat-1.png)
+  ![chat-1.png](mdImg/chat-1.png)
 
-  ![chat-2.png](FunAi-GitHub-readme+55224001-757a-43fd-9e9e-f27b176e5c3e/chat-2.png)
+  ![chat-2.png](mdImg/chat-2.png)
 
 ✅ PDF智能阅读（论文 / 简历 / 知识文档等）
 
@@ -50,9 +50,9 @@
 
   - 多会话 + 文件保存 + 记录存储 + 记录管理（新增 / 删除） 
 
-  ![pdf-2.png](FunAi-GitHub-readme+55224001-757a-43fd-9e9e-f27b176e5c3e/pdf-2.png)
+  ![pdf-2.png](mdImg/pdf-2.png)
 
-  ![pdf-3.png](FunAi-GitHub-readme+55224001-757a-43fd-9e9e-f27b176e5c3e/pdf-3.png)
+  ![pdf-3.png](mdImg/pdf-3.png)
 
 ✅ 智能语言学家
 
@@ -60,7 +60,7 @@
 
   - 语法修改器
 
-  ![trans-2.png](FunAi-GitHub-readme+55224001-757a-43fd-9e9e-f27b176e5c3e/trans-2.png)
+  ![trans-2.png](mdImg/trans-2.png)
 
 ✅ 文字冒险游戏
 
@@ -70,9 +70,9 @@
 
   - TODO: 游戏描述图片展示 + 背景音乐
 
-  ![game-2.png](FunAi-GitHub-readme+55224001-757a-43fd-9e9e-f27b176e5c3e/game-2.png)
+  ![game-2.png](mdImg/game-2.png)
 
-  ![game-3.png](FunAi-GitHub-readme+55224001-757a-43fd-9e9e-f27b176e5c3e/game-3.png)
+  ![game-3.png](mdImg/game-3.png)
 
 ✅ 专家系统
 
@@ -80,7 +80,7 @@
 
   - 多语言
 
-  ![expert-2.png](FunAi-GitHub-readme+55224001-757a-43fd-9e9e-f27b176e5c3e/expert-2.png)
+  ![expert-2.png](mdImg/expert-2.png)
 
 ✅ 提示库
 
