@@ -23,10 +23,10 @@ import java.io.IOException;
 @Slf4j
 public class PineconeApi {
     /**
-     *  使用Pinecone作为向量数据库需要填写，否则使用milvus向量库
+     *  使用Pinecone作为向量数据库需要填写(另外需要在表admin_apikey中插入一条记录，type为4，name为Pinecone的apikey)
      *  TODO
      */
-    private static final String PINECONE_API_URL = "https://docemb-55f2510.svc.us-west4-gcp.pinecone.io";
+    private static final String PINECONE_API_URL = "https://xxxxxx.pinecone.io";
 
     // 插入Pinecone向量库
     public static String insertEmbedding(PineconeInsertReq pineconeInsertReq, String apiKey){

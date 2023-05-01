@@ -4,11 +4,57 @@
 
 - 欢迎来到FunAi的后端仓库，我们使用Java对了现有AGI进行二次开发。
 - 目前是FunAi的第一个版本，已经接入ChatGPT和GPT-4实现一些有意思的应用，详细请见【功能介绍】部分。
-- 目前[FunAi](http://funai.space/) 可免费使用😆，欢迎进入[FunAi](http://funai.space/)网站一起玩耍吧~
+- 目前[FunAi网站](http://funai.space/) 可免费使用😆，欢迎进入[FunAi](http://funai.space/)网站一起玩耍吧~
 
 ## 🔰 快速开始
 
-预计5月初前把代码上传~敬请期待！！
+🎈第一步：MySQL导入funai.sql文件
+
+🎈第二步：必配项目 （在项目中全局搜 TODO关键字找到必配条目）
+
+- 配置application.properties
+  - MySQL
+  - Redis
+  - 梦网云短信服务
+
+- 配置向量库（二选一，推荐选Pinecone）
+
+  - **Pinecone向量库（第三方）**
+
+    1. 去Pinecone申请apikey
+
+    2. 在`PineconeApi.java`中完善以下信息
+
+       ```java
+       private static final String PINECONE_API_URL = "https://xxxxxx.pinecone.io";
+       ```
+
+    3. 在MySQL数据库表admin_apikey中插入一条记录，type为4，name为Pinecone的apikey
+
+  - Milvus向量库（本地搭建）
+
+    1. 搭建Milvus
+
+    2. 在`MilvusClientUtil.java`中完善以下信息
+
+       ```java
+       private static final MilvusServiceClient milvusClient = new MilvusServiceClient(
+                   ConnectParam.newBuilder()
+                           .withHost("xx.xx.xx.xx")
+                           .withPort(19530)
+                           .build());
+       ```
+
+       
+
+🎈第三步：配置OpenAI的apikey
+
+1. 创建OpenAI账号，申请apikey
+2. 在MySQL数据库admin_apikey中插入一条记录，type为0，name为OpenAI的apikey
+
+
+
+🎈第四步：启动 FunAiApplication  或  在测试类TestChatService中测试chatOneShot方法
 
 
 
@@ -70,7 +116,7 @@
 
   - 更像人类的翻译官
 
-  - 语法修改器
+  - 语法修改器 TODO
 
 ![trans-2.png](mdImg/trans-2.png)
 
@@ -80,9 +126,13 @@
 
   - 全局搜索
 
-  - 提示库管理（增删查改）
+  - 提示库管理
+
+    
 
 ✅ 账号管理
+
+- 游客登录（IP）
 
   - 注册（手机号 + 验证码 + 密码）
 
@@ -90,9 +140,9 @@
 
   - 重置密码
 
-  - APIKEY 管理（上传自己的API-Key，不受限制。否则每天有30次的互动限制）
+  - APIKEY 管理（用户可上传自己的API-Key，不受限制。否则每天有根据用户等级不同设置聊天限制）
 
-  - 用户等级管理
+  - 用户等级管理（普通用户、vip用户、管理员、游客）
 
   - 权限管理
 
@@ -117,6 +167,8 @@
 
 
 ## ➰ 项目技术
+
+
 
 
 
