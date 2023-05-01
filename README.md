@@ -228,17 +228,52 @@
 
 
 
-✅ 模拟面试 （TODO）
-
+✅ 智能简历 （TODO）
 
 
 ✅ 口语练习 （TODO）
 
 
 
+## 🖋 参与贡献
+
+<a href="https://github.com/huangPengL/ChatGPT-Java-FunAi/graphs/contributors">  <img src="https://contrib.rocks/image?repo=huangPengL/ChatGPT-Java-FunAi" /></a>
+
+
+## 🍺 赞助
+
+如果你认为我的项目对你很有帮助，而且情况允许的话，那么请考虑支持我的项目。我将非常感激任何的支持，哪怕只是一点点的资助，也能激励我持续开发和改进这个项目。
+
+您可以通过以下几种方式支持我的项目：
+
+- 赞助我：您可以通过贡献资金来支持我的项目，这将帮助我支付服务器、工具和其他开发成本。您可以在下方找到资助方式。
+
+- 分享项目：如果您不能贡献资金，但是您认为我的项目非常有价值，那么请考虑分享项目链接给您的朋友和同事。这将有助于我的项目得到更多的关注和支持。如果可以请给一个小小的star！
+
+- 提供反馈：您可以通过提交Issues或者Pull Requests来帮助改进我的项目。如果您发现了任何错误或者您认为我的项目可以改进的地方，欢迎随时向我提供反馈。
+
+总之，非常感谢您对我的项目的支持，我将努力不懈地改进和提高这个项目的质量，让它更好地为您和其他用户服务。
+
+WeChat Pay:
+
+![wechat-pay.png](mdImg/wechat-pay.png)
+
+
+## ⏰ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=huangPengL/ChatGPT-Java-FunAi&type=Timeline)](https://star-history.com/#huangPengL/ChatGPT-Java-FunAi&Timeline)
+
+
 ## 📄 License
 
-FunAi is licensed under the MIT License. See the [LICENSE](https://github.com/huangPengL/ChatGPT-Java-FunAi/blob/master/LICENSE) file for more information.
+FunAi is licensed under the Apache-2.0 License. See the [LICENSE](https://github.com/huangPengL/ChatGPT-Java-FunAi/blob/master/LICENSE) file for more information.
+
+
+## 免责声明 Disclaimers
+
+The code is for demo and testing only. 代码仅用于演示和测试。
+
+⚠⚠⚠请勿将本系统代码用于商业用途！
 
 
 
