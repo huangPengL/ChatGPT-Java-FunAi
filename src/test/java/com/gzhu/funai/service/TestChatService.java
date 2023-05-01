@@ -40,6 +40,10 @@ public class TestChatService {
 
     @Test
     public void chatOneShot(){
+
+        System.out.println("正在加载apiKey...");
+        adminApiKeyService.load();
+        System.out.println("加载apiKey成功");
         ChatGPTReq chatGPTReq = ChatGPTReq.builder()
                 .messages(ImmutableList.of(new ContextMessage(Role.USER.name, "你好")))
                 .model(OpenAIConst.MODEL_NAME_CHATGPT_3_5)
