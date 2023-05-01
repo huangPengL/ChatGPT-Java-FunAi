@@ -13,14 +13,13 @@
 ✅ ChatGPT聊天
 
 - 集成OpenAi API (ChatGPT3.5 + GPT4 + embedding)
-
-  - 支持markdown格式，代码高亮，代码复制，公式和图表展示
-  - 无限轮聊天 + 带上下文逻辑 （Guava Cache 优化响应时间）
-  - 流式输出 / 普通输出
-  - 多会话 + 记录存储 + 记录管理（新增/清空/删除）
-  - 数据导出
-  - 语音聊天 + 语音播放
-  - TODO: 接入文生图模型（MidJourney / Stable Diffusion Model）
+- 支持markdown格式，代码高亮，代码复制，公式和图表展示
+- 无限轮聊天 + 带上下文逻辑 （Guava Cache 优化响应时间）
+- 流式输出 / 普通输出
+- 多会话 + 记录存储 + 记录管理（新增/清空/删除）
+- 数据导出
+- 语音聊天 + 语音播放
+- TODO: 接入文生图模型（MidJourney / Stable Diffusion Model）
 
 
 
