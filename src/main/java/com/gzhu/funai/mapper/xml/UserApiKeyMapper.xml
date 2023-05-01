@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gzhu.funai.mapper.UserApiKeyMapper">
+
+  <insert id="insertOrUpdate" >
+      insert into user_apikey(`user_id`, `type`, `apikey`)
+      values (#{userId}, #{type}, #{apikey})
+      ON DUPLICATE KEY UPDATE
+      `apikey` = #{apikey}
+  </insert>
+</mapper>
