@@ -36,12 +36,12 @@ public class TestPinecone {
     @Resource
     private AdminApiKeyService adminApiKeyService;
 
-
+    private String PINECONE_URL = "https://docemb-55f2510.svc.us-west4-gcp.pinecone.io";
     @Test
     public void testDescribeIndexStats(){
 
         Request request = new Request.Builder()
-                .url("https://docemb-55f2510.svc.us-west4-gcp.pinecone.io/describe_index_stats")
+                .url(PINECONE_URL + "/describe_index_stats")
                 .header("accept", "application/json")
                 .header("content-type", "application/json")
                 .header("Api-Key","xxx")
@@ -77,7 +77,7 @@ public class TestPinecone {
             PineconeInsertReq pineconeIndexReq = PineconeInsertReq.builder().vectors(vectors).namespace("userIdsessionId_" + i).build();
 
             Request request = new Request.Builder()
-                    .url("https://docemb-55f2510.svc.us-west4-gcp.pinecone.io/vectors/upsert")
+                    .url(PINECONE_URL + "/vectors/upsert")
                     .post(RequestBody.create(MediaType.parse(ContentType.JSON.getValue()), JSONUtil.parseObj(pineconeIndexReq).toString()))
                     .header("accept", "application/json")
                     .header("content-type", "application/json")
@@ -126,7 +126,7 @@ public class TestPinecone {
         PineconeQueryReq pineconeQueryReq = PineconeQueryReq.builder().namespace("userIdsessionId_0").topK(20).includeMetadata(true).vector(vector).build();
 
         Request request = new Request.Builder()
-                .url("https://docemb-55f2510.svc.us-west4-gcp.pinecone.io/query")
+                .url(PINECONE_URL + "/query")
                 .post(RequestBody.create(MediaType.parse(ContentType.JSON.getValue()), JSONUtil.parseObj(pineconeQueryReq).toString()))
                 .header("accept", "application/json")
                 .header("content-type", "application/json")
@@ -161,7 +161,7 @@ public class TestPinecone {
             PineconeDeleteReq pineconeDeleteReq = PineconeDeleteReq.builder().deleteAll(true).namespace("userIdsessionId_" + i).build();
 
             Request request = new Request.Builder()
-                    .url("https://docemb-55f2510.svc.us-west4-gcp.pinecone.io/vectors/delete")
+                    .url(PINECONE_URL + "/vectors/delete")
                     .post(RequestBody.create(MediaType.parse(ContentType.JSON.getValue()), JSONUtil.parseObj(pineconeDeleteReq).toString()))
                     .header("accept", "application/json")
                     .header("content-type", "application/json")

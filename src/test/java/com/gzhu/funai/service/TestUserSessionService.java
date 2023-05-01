@@ -23,7 +23,7 @@ public class TestUserSessionService {
 
     @Test
     public void testInsert(){
-        UserSessionEntity session = new UserSessionEntity("87465fd7_0187_465fd781_46928081_0000", "test_chattype", SessionType.NORMAL_CHAT.type);
+        UserSessionEntity session = new UserSessionEntity("", "test_chattype", SessionType.NORMAL_CHAT.type);
         userSessionService.save(session);
     }
     @Test
@@ -34,7 +34,7 @@ public class TestUserSessionService {
 
     @Test
     public void testGetSessionList(){
-        List<UserSessionEntity> sessionList = userSessionService.getSessionList("87465fd7_0187_465fd781_46928081_0000", SessionType.NORMAL_CHAT);
+        List<UserSessionEntity> sessionList = userSessionService.getSessionList("", SessionType.NORMAL_CHAT);
         sessionList.stream().forEach(e -> System.out.println(e.getSessionId()));
     }
 }

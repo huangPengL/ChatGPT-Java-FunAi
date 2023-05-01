@@ -27,7 +27,7 @@ public class TestUserApiKeyService  {
     public void testSave(){
 
         UserApiKeyEntity userApiKeyEntity = UserApiKeyEntity.builder()
-                .userId("8782ff00_0187_82ff0000_2c9e94c4_0000")
+                .userId("")
                 .apikey("AAABBB")
                 .type(ApiType.OPENAI.typeNo)
                 .build();
@@ -37,7 +37,7 @@ public class TestUserApiKeyService  {
     @Test
     public void testGetOne(){
         UserApiKeyEntity one = userApiKeyService.getOne(new QueryWrapper<UserApiKeyEntity>()
-                .eq("user_id", "8782ff00_0187_82ff0000_2c9e94c4_0000")
+                .eq("user_id", "")
                 .eq("type", ApiType.OPENAI.typeNo)
         );
 

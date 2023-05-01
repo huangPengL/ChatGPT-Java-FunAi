@@ -47,22 +47,22 @@ public class TestFileChatService {
             MultipartFile multipartFile = new MockMultipartFile("file", file.getName(), "text/plain", IOUtils.toByteArray(input));
 
             ChatGPTReq chatGPTReq = ChatGPTReq.builder().model(OpenAIConst.MODEL_NAME_CHATGPT_3_5).build();
-            String resultR = fileChatService.uploadFile(multipartFile, "87465fd7_0187_465fd781_46928081_0000", adminApiKeyService.roundRobinGetByType(ApiType.OPENAI), chatGPTReq, false);
+            String resultR = fileChatService.uploadFile(multipartFile, "", adminApiKeyService.roundRobinGetByType(ApiType.OPENAI), chatGPTReq, false);
 
             System.out.println("文件处理成功");
 
-            ChatGPTResp resp = fileChatService.chatWithFile("87465fd7_0187_465fd781_46928081_0000", 85, "文章的创新点是什么？", adminApiKeyService.roundRobinGetByType(ApiType.OPENAI), chatGPTReq, false);
+            ChatGPTResp resp = fileChatService.chatWithFile("", 85, "文章的创新点是什么？", adminApiKeyService.roundRobinGetByType(ApiType.OPENAI), chatGPTReq, false);
 
             if(resp != null){
                 System.out.println("结果0：" + resp.getMessage());
             }
 
-            ChatGPTResp resp1 = fileChatService.chatWithFile("87465fd7_0187_465fd781_46928081_0000", 85, "发表这篇文章的机构是谁？", adminApiKeyService.roundRobinGetByType(ApiType.OPENAI), chatGPTReq, false);
+            ChatGPTResp resp1 = fileChatService.chatWithFile("", 85, "发表这篇文章的机构是谁？", adminApiKeyService.roundRobinGetByType(ApiType.OPENAI), chatGPTReq, false);
             if(resp1 != null){
                 System.out.println("结果1：" + resp1.getMessage());
             }
 
-            boolean result = fileChatService.dropCollection("87465fd7_0187_465fd781_46928081_0000", 85, false);
+            boolean result = fileChatService.dropCollection("", 85, false);
             if(result){
                 System.out.println("关闭连接成功");
             }else{

@@ -17,7 +17,7 @@ public class TestUserAdviceService {
     @Test
     public void testUserAddAdvice(){
         UserAdvicesEntity userAdvicesEntity = UserAdvicesEntity.builder()
-                .userId("8782ff00_0187_82ff0000_2c9e94c4_0000")
+                .userId("")
                 .advice("这里的界面不太好")
                 .build();
         userAdvicesService.save(userAdvicesEntity);

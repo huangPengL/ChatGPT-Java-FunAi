@@ -23,7 +23,7 @@ public class TestChatGPT {
 
         ChatGPTResp resp = ChatGPTApi.sessionReq(
                 ChatGPTReq.builder().messages(Arrays.asList(new ContextMessage(Role.USER.name, "你好"))).build(),
-                "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");
+                "");
 
         System.out.println(resp.getChoices().get(0).getMessage().toString());
     }
@@ -31,7 +31,7 @@ public class TestChatGPT {
     @Test
     public void testEmbed(){
 
-        EmbeddingResp embeddingResp = ChatGPTApi.embeddings(Arrays.asList("this is a", "this is bb"), "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");
+        EmbeddingResp embeddingResp = ChatGPTApi.embeddings(Arrays.asList("this is a", "this is bb"), "");
 
         System.out.println("test embed");
     }

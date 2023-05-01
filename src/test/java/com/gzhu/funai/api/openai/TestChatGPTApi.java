@@ -81,13 +81,13 @@ public class TestChatGPTApi {
 
     @Test
     public void testGetCreditGrants(){
-        String apikey = "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";
+        String apikey = "";
         ChatGPTApi.creditGrants(apikey);
     }
 
     @Test
     public void testGetBillingUsage(){
-        String apikey = "sk-xhDPHJb4W56C434b3nT3BlbkFJS3slLT2mYj5phmr9mXqO";
+        String apikey = "";
         BillingUsage billingUsage = ChatGPTApi.getBillingUsage(apikey);
         System.out.println(billingUsage);
     }

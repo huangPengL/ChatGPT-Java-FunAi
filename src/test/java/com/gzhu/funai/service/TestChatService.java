@@ -54,7 +54,7 @@ public class TestChatService {
     public void chatSession(){
         ChatGPTReq chatGPTReq = ChatGPTReq.builder().build();
         ChatGPTResp resp = chatService.sessionChat(
-                "87429347-0187-42934726-4028f481-0000", 1, chatGPTReq,"我刚刚问了什么",
+                "", 1, chatGPTReq,"我刚刚问了什么",
                 adminApiKeyService.roundRobinGetByType(ApiType.OPENAI), SessionType.NORMAL_CHAT);
         System.out.println(resp.getMessage());
     }
@@ -75,7 +75,7 @@ public class TestChatService {
 
         SseEmitter sseEmitter = new SseEmitter(0L);
         chatService.streamSessionChat(
-                "8745fb73_0187_46017655_40288090_0003", 92, chatGPTReq,msg,
+                "", 92, chatGPTReq,msg,
                 adminApiKeyService.roundRobinGetByType(ApiType.OPENAI), sseEmitter, SessionType.NORMAL_CHAT);
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
@@ -97,7 +97,7 @@ public class TestChatService {
 
         SseEmitter sseEmitter = new SseEmitter(0L);
         chatService.streamOneShotChat(
-                "8745fb73_0187_46017655_40288090_0003", chatGPTReq,
+                "", chatGPTReq,
                 adminApiKeyService.roundRobinGetByType(ApiType.OPENAI), sseEmitter);
 
         CountDownLatch countDownLatch = new CountDownLatch(1);

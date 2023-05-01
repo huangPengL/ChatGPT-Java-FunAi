@@ -21,7 +21,7 @@ public class TestChatRedisHelper {
 
     @Test
     public void testChatCount(){
-        String userId = "8782ff00_0187_82ff0000_2c9e94c4_0003";
+        String userId = "";
         chatRedisHelper.incrDailyChatCount(userId, 1);
         int dailyChatLimit = chatRedisHelper.getDailyChatCount(userId);
         System.out.println(dailyChatLimit);
@@ -29,7 +29,7 @@ public class TestChatRedisHelper {
 
     @Test
     public void testPDFUploadCount(){
-        String userId = "8782ff00_0187_82ff0000_2c9e94c4_0003";
+        String userId = "";
         chatRedisHelper.incrDailyFileUploadCount(userId, 1);
         int dailyChatLimit = chatRedisHelper.getDailyFileUploadCount(userId);
         System.out.println(dailyChatLimit);
