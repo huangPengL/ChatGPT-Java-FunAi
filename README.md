@@ -170,6 +170,15 @@
 
 - 主语言：Java（JDK 1.8）
 - 开发框架：SpringBoot
+- 技术组件：
+  - 本地缓存LoadingCache
+  - 拦截器（登录拦截/管理员权限/限流/功能限制）
+  - 过滤器（跨域/全局日志）
+  - 全局异常处理器 
+  - SSE服务器发送事件
+  - JWT用户鉴权
+  - Swagger
+  - Stream流
 - 数据库：MySQL 5.7、Pinecone、Milvus 2.2.5
 - 中间件：Redis 7.0.11
 - 对象存储： 阿里云OSS
@@ -243,7 +252,9 @@
 
 ## 🖋 参与贡献
 
-<a href="https://github.com/huangPengL/ChatGPT-Java-FunAi/graphs/contributors">  <img src="https://contrib.rocks/image?repo=huangPengL/ChatGPT-Java-FunAi" /></a>
+<a href="https://github.com/huangPengL/ChatGPT-Java-FunAi/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=huangPengL/ChatGPT-Java-FunAi" />
+</a>
 
 
 ## 🍺 赞助
@@ -262,7 +273,7 @@
 
 WeChat Pay:
 
-<img src="mdImg/wechat-pay.png" width="30%" height="30%">
+<img src="mdImg/wechat-pay.png" width="35%" height="35%">
 
 
 ## ⏰ Star History
