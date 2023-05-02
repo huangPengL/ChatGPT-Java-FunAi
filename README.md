@@ -199,23 +199,23 @@
 
 ✅ ChatGPT聊天
 
-<img src="mdImg/chat-1.png" width="75%" height="75%">
+<img src="mdImg/chat-1.png" width="85%" height="85%">
 
-<img src="mdImg/chat-2.png" width="75%" height="75%">
+<img src="mdImg/chat-2.png" width="85%" height="85%">
 
 
 ✅ PDF智能阅读（论文 / 简历 / 知识文档等）  
 
-<img src="mdImg/pdf-2.png" width="75%" height="75%">
+<img src="mdImg/pdf-2.png" width="85%" height="85%">
 
-<img src="mdImg/pdf-3.png" width="75%" height="75%">
+<img src="mdImg/pdf-3.png" width="85%" height="85%">
 
 
 ✅ 文字冒险游戏
 
-<img src="mdImg/game-2.png" width="75%" height="75%">
+<img src="mdImg/game-2.png" width="85%" height="85%">
 
-<img src="mdImg/game-3.png" width="75%" height="75%">
+<img src="mdImg/game-3.png" width="85%" height="85%">
 
 
 ✅ 专家系统
@@ -223,26 +223,26 @@
 - 多领域（投资、广告、小说、计算机、诗歌、哲学、医学、心理学等） + 多语言（中、英、日、韩...等）
 
 
-<img src="mdImg/expert-2.png" width="75%" height="75%">
+<img src="mdImg/expert-2.png" width="85%" height="85%">
 
 
 ✅ 智能语言学家（更像人类的翻译官）
 
-<img src="mdImg/trans-2.png" width="75%" height="75%">
+<img src="mdImg/trans-2.png" width="85%" height="85%">
 
 
 ✅ 提示库
 
-<img src="mdImg/prompt-1.png" width="75%" height="75%">
+<img src="mdImg/prompt-1.png" width="85%" height="85%">
 
 
 ✅ 账号管理
 
-<img src="mdImg/user-1.png" width="75%" height="75%">
+<img src="mdImg/user-1.png" width="85%" height="85%">
 
-<img src="mdImg/user-2.png" width="75%" height="75%">
+<img src="mdImg/user-2.png" width="85%" height="85%">
 
-<img src="mdImg/user-3.png" width="75%" height="75%">
+<img src="mdImg/user-3.png" width="85%" height="85%">
 
 
 
