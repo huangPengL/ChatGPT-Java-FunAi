@@ -170,17 +170,21 @@
 
 - 主语言：Java（JDK 1.8）
 - 开发框架：SpringBoot
-- 技术组件：
+- 核心技术：
   - 本地缓存LoadingCache
+  - SSE服务器发送事件
+  - 算法（双端队列 + 滑动窗口 + 轮询负载均衡等）
+  - Stream流
+  - 锁机制
+  - 定时任务
   - 拦截器（登录拦截/管理员权限/限流/功能限制）
   - 过滤器（跨域/全局日志）
   - 全局异常处理器 
-  - SSE服务器发送事件
   - JWT用户鉴权
   - Swagger
-  - Stream流
+
 - 数据库：MySQL 5.7、Pinecone、Milvus 2.2.5
-- 中间件：Redis 7.0.11
+- 中间件：Redis 7.0.11, MyBatis-Plus
 - 对象存储： 阿里云OSS
 - 第三方API：Openai-ChatGPT、Openai-Embedding、梦网云短信服务、百度语音识别
 
