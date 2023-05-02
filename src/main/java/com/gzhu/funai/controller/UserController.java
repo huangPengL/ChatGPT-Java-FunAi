@@ -218,6 +218,8 @@ public class UserController {
 
     /**
      * 添加用户建议
+     * @Author :oujiajun
+     * @Date: 2023/4/29 14:58
      */
     @PostMapping("/advice/addAdvice")
     public ReturnResult addAdvice(@RequestBody @Valid UserAdviceRequest userAdviceRequest) {
