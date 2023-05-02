@@ -1,7 +1,6 @@
 # 🚀 FunAi - Based on ChatGPT and SpringBoot
 
 ## 📖 简介
-
 - 欢迎来到FunAi的后端仓库，我们正在使用Java对现有AGI进行二次开发。
 - 目前是FunAi的第一个版本，已经接入ChatGPT和GPT-4实现一些有意思的应用，详细请见【项目亮点】 和 【功能展示】部分。
 - 我们的[FunAi网站](https://funai.vip/) 可免费使用😆，欢迎进入[FunAi](https://funai.vip/)一起玩耍吧（网站内有联系方式）~
@@ -117,7 +116,7 @@
 - 配置application.properties
   - MySQL
   - Redis
-  - 梦网云短信服务
+  - 梦网云短信服务（无需手机注册功能可不填）
 
 - 配置向量库（二选一，推荐选Pinecone）
 
