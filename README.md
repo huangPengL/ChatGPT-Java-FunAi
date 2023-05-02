@@ -2,9 +2,9 @@
 
 ## 📖 简介
 
-- 欢迎来到FunAi的后端仓库，我们使用Java对了现有AGI进行二次开发。
+- 欢迎来到FunAi的后端仓库，我们正在使用Java对现有AGI进行二次开发。
 - 目前是FunAi的第一个版本，已经接入ChatGPT和GPT-4实现一些有意思的应用，详细请见【项目亮点】 和 【功能展示】部分。
-- 目前[FunAi网站](https://funai.vip/) 可免费使用😆，欢迎进入[FunAi](https://funai.vip/)网站一起玩耍吧~
+- 我们的[FunAi网站](https://funai.vip/) 可免费使用😆，欢迎进入[FunAi](https://funai.vip/)一起玩耍吧（网站内有联系方式）~
 
 
 
@@ -186,45 +186,51 @@
 
 ✅ ChatGPT聊天
 
-![chat-1.png](mdImg/chat-1.png)
+<img src="mdImg/chat-1.png" width="75%" height="75%">
 
-  ![chat-2.png](mdImg/chat-2.png)
+<img src="mdImg/chat-2.png" width="75%" height="75%">
 
 
+✅ PDF智能阅读（论文 / 简历 / 知识文档等）  
 
-✅ PDF智能阅读（论文 / 简历 / 知识文档等）  ![pdf-2.png](mdImg/pdf-2.png)
+<img src="mdImg/pdf-2.png" width="75%" height="75%">
 
-  ![pdf-3.png](mdImg/pdf-3.png)
-
+<img src="mdImg/pdf-3.png" width="75%" height="75%">
 
 
 ✅ 文字冒险游戏
 
-![game-2.png](mdImg/game-2.png)
+<img src="mdImg/game-2.png" width="75%" height="75%">
 
-  ![game-3.png](mdImg/game-3.png)
+<img src="mdImg/game-3.png" width="75%" height="75%">
+
 
 ✅ 专家系统
 
-  - 多领域（投资、广告、小说、计算机、诗歌、哲学、医学、心理学等） + 多语言（中、英、日、韩...等）
+- 多领域（投资、广告、小说、计算机、诗歌、哲学、医学、心理学等） + 多语言（中、英、日、韩...等）
 
-![expert-2.png](mdImg/expert-2.png)
+
+<img src="mdImg/expert-2.png" width="75%" height="75%">
+
 
 ✅ 智能语言学家（更像人类的翻译官）
 
-![trans-2.png](mdImg/trans-2.png)
+<img src="mdImg/trans-2.png" width="75%" height="75%">
+
 
 ✅ 提示库
 
-![prompt-1.png](mdImg/prompt-1.png)
+<img src="mdImg/prompt-1.png" width="75%" height="75%">
+
 
 ✅ 账号管理
 
-![user-1.png](mdImg/user-1.png)
+<img src="mdImg/user-1.png" width="75%" height="75%">
 
-![user-2.png](mdImg/user-2.png)
+<img src="mdImg/user-2.png" width="75%" height="75%">
 
-![user-3.png](mdImg/user-3.png)
+<img src="mdImg/user-3.png" width="75%" height="75%">
+
 
 
 
@@ -256,7 +262,7 @@
 
 WeChat Pay:
 
-![wechat-pay.png](mdImg/wechat-pay.png)
+<img src="mdImg/wechat-pay.png" width="30%" height="30%">
 
 
 ## ⏰ Star History
