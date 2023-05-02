@@ -1,4 +1,5 @@
 # 🚀 FunAi - Based on ChatGPT and SpringBoot
+> 声明：FunAi项目只发布于 GitHub，基于 Apache-2.0 协议，免费且作为开源学习使用，未经本人同意不可用于商业项目。欢迎一起交流讨论，微信群、QQ群以及个人微信号在[FunAi](https://funai.vip/)中可以找到。若有合作意向请微信联系或邮件243031504@qq.com
 
 ## 📖 简介
 - 欢迎来到FunAi的后端仓库，我们正在使用Java对现有AGI进行二次开发。
