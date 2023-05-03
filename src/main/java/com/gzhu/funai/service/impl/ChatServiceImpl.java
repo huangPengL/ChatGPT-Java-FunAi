@@ -68,6 +68,8 @@ public class ChatServiceImpl implements ChatService{
     private SessionChatRecordService sessionChatRecordService;
     @Resource
     private TaskExecutor queueThreadPool;
+    @Resource
+    private ExpertChatHelper expertChatHelper;
 
 
     @Override
@@ -90,9 +92,6 @@ public class ChatServiceImpl implements ChatService{
                                    String message, String apiKey, SessionType sessionType) {
         // 从缓存中获取[会话窗口]
         Deque<SessionChatRecordEntity> windowRecords = getWindowRecordsBySessionTypeAndId(sessionType, sessionId);
-        if(windowRecords == null){
-            return null;
-        }
 
         // 获取[会话窗口]的token总数
         int windowRecordsTokens = windowRecordTokensCache.getOrDefault(sessionId, 0);
@@ -104,7 +103,7 @@ public class ChatServiceImpl implements ChatService{
         String originMsg = message;
         // 专家会话的问题拼上要回复的语言
         if (sessionType.equals(SessionType.EXPERT_CHAT)) {
-            message += "(用"+ ExpertChatHelper.getExpertChatLanguage(sessionId,userSessionService) +"回答)";
+            message += "(用"+ expertChatHelper.getExpertChatLanguage(sessionId) +"回答)";
         }
         // 若[会话窗口]加入当前对话后，token总数一旦超过K，那就指定从第几个位置开始弹出记录。
         int askTokenNum = ChatGPTApi.getMessageTokenNum(message);
@@ -160,9 +159,6 @@ public class ChatServiceImpl implements ChatService{
                                   String message, String apiKey, SseEmitter sseEmitter, SessionType sessionType) {
         // 从缓存中获取[会话窗口]
         Deque<SessionChatRecordEntity> windowRecords = getWindowRecordsBySessionTypeAndId(sessionType, sessionId);
-        if(windowRecords == null){
-            return ;
-        }
 
         // 获取[会话窗口]的token总数
         int windowRecordsTokens = windowRecordTokensCache.getOrDefault(sessionId, 0);
@@ -176,7 +172,7 @@ public class ChatServiceImpl implements ChatService{
         String originMsg = message;
         // 专家会话的问题拼上要回复的语言
         if (sessionType.equals(SessionType.EXPERT_CHAT)) {
-            message += "(用"+ ExpertChatHelper.getExpertChatLanguage(sessionId,userSessionService) +"回答)";
+            message += "(用"+ expertChatHelper.getExpertChatLanguage(sessionId) +"回答)";
         }
         int askTokenNum = ChatGPTApi.getMessageTokenNum(message);
         int pollIndex = sessionType.equals(SessionType.NORMAL_CHAT) ? 0 : 1;
@@ -189,9 +185,9 @@ public class ChatServiceImpl implements ChatService{
                 .map(item -> new ContextMessage(item.getRole(), item.getContent()))
                 .collect(Collectors.toList());
         chatGPTReq.setMessages(askContentList);
-        windowRecords.pollLast();  //预防请求失败，先弹出最后一条记录
+        windowRecords.pollLast();  // 预防请求失败，先弹出最后一条记录
 
-//        保存专家会话的原始问题的tokenNum
+        //  保存专家会话的原始问题的tokenNum
         if (sessionType.equals(SessionType.EXPERT_CHAT)) {
             askTokenNum = ChatGPTApi.getMessageTokenNum(originMsg);
         }
@@ -352,7 +348,7 @@ public class ChatServiceImpl implements ChatService{
                 return new LinkedList<>(normalWindowRecordCache.get(sessionId));
             case EXPERT_CHAT:
             case GAME_CHAT:
-                return new LinkedList<>(gameWindowRecordCache.get(sessionId));
+                return  new LinkedList<>(gameWindowRecordCache.get(sessionId));
             default:
         }
         return new LinkedList<>();

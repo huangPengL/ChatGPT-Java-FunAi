@@ -98,7 +98,10 @@ public class FileChatController {
         UserApiKeyEntity userApiKeyEntity = userApiKeyService.getByUserIdAndType(req.getUserId(), ApiType.OPENAI);
         String apiKey = userApiKeyEntity != null && !StringUtils.isEmpty(userApiKeyEntity.getApikey())
                 ? userApiKeyEntity.getApikey()
-                : adminApiKeyService.getBestByType(ApiType.OPENAI);
+                : adminApiKeyService.roundRobinGetByType(ApiType.OPENAI);
+        if(apiKey == null){
+            return ReturnResult.error().codeAndMessage(ResultCode.ADMIN_APIKEY_NULL);
+        }
 
         ChatGPTReq gptReq = ChatGPTReq.builder().model(OpenAIConst.MODEL_NAME_CHATGPT_3_5).build();
         String result = fileChatService.uploadFile(req.getFile(), req.getUserId(), apiKey, gptReq, usePinecone);
@@ -126,6 +129,9 @@ public class FileChatController {
         String apiKey = userApiKeyEntity != null && !StringUtils.isEmpty(userApiKeyEntity.getApikey())
                 ? userApiKeyEntity.getApikey()
                 : adminApiKeyService.getBestByType(ApiType.OPENAI);
+        if(apiKey == null){
+            return ReturnResult.error().codeAndMessage(ResultCode.ADMIN_APIKEY_NULL);
+        }
 
         SessionType sessionType = SessionType.get(req.getSessionType());
         ChatGPTReq gptReq  = ChatGPTReq.builder()
@@ -159,6 +165,9 @@ public class FileChatController {
         String apiKey = userApiKeyEntity != null && !StringUtils.isEmpty(userApiKeyEntity.getApikey())
                 ? userApiKeyEntity.getApikey()
                 : adminApiKeyService.getBestByType(ApiType.OPENAI);
+        if(apiKey == null){
+            return ReturnResult.error().codeAndMessage(ResultCode.ADMIN_APIKEY_NULL);
+        }
 
         ChatGPTReq chatGPTReq = ChatGPTReq.builder()
                 .model(OpenAIConst.MODEL_NAME_CHATGPT_3_5)

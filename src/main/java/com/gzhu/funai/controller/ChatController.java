@@ -65,7 +65,7 @@ public class ChatController {
     @Resource
     private UserApiKeyService userApiKeyService;
     @Resource
-    private PromptService promptService;
+    private ExpertChatHelper expertChatHelper;
 
     /**
      * 调用openai的ChatGPT接口实现单论对话
@@ -84,7 +84,9 @@ public class ChatController {
         String apiKey = userApiKeyEntity != null && !StringUtils.isEmpty(userApiKeyEntity.getApikey())
                 ? userApiKeyEntity.getApikey()
                 : adminApiKeyService.roundRobinGetByType(ApiType.OPENAI);
-
+        if(apiKey == null){
+            return ReturnResult.error().codeAndMessage(ResultCode.ADMIN_APIKEY_NULL);
+        }
         SessionType sessionType = SessionType.get(req.getSessionType());
         ChatGPTReq gptReq  = ChatGPTReq.builder()
                 .model(OpenAIConst.MODEL_NAME_CHATGPT_3_5)
@@ -121,7 +123,7 @@ public class ChatController {
 
         // 若会话是专家领域创建会话后插入一条提示记录
         if (userSessionEntity != null  && SessionType.EXPERT_CHAT.equals(type)) {
-            ExpertChatHelper.handleSessionSystemRecord(userSessionEntity,sessionChatRecordService,promptService);
+            expertChatHelper.handleSessionSystemRecord(userSessionEntity);
         }
         return userSessionEntity != null ? ReturnResult.ok() : ReturnResult.error();
     }
@@ -158,6 +160,9 @@ public class ChatController {
         String apiKey = userApiKeyEntity != null && !StringUtils.isEmpty(userApiKeyEntity.getApikey())
                 ? userApiKeyEntity.getApikey()
                 : adminApiKeyService.roundRobinGetByType(ApiType.OPENAI);
+        if(apiKey == null){
+            return ReturnResult.error().codeAndMessage(ResultCode.ADMIN_APIKEY_NULL);
+        }
 
         SessionType sessionType = SessionType.get(req.getSessionType());
         ChatGPTReq gptReq  = ChatGPTReq.builder()

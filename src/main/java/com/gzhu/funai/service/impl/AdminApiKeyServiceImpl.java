@@ -11,6 +11,7 @@ import com.gzhu.funai.enums.ApiType;
 import com.gzhu.funai.exception.BaseException;
 import com.gzhu.funai.global.constant.TimeInterval;
 import com.gzhu.funai.mapper.AdminApiKeyMapper;
+import com.gzhu.funai.redis.AdminApiKeyRedisHelper;
 import com.gzhu.funai.service.AdminApiKeyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.task.TaskExecutor;
@@ -33,6 +34,8 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
 
     @Resource
     private TaskExecutor queueThreadPool;
+    @Resource
+    private AdminApiKeyRedisHelper adminApiKeyRedisHelper;
 
     private Map<Integer, List<AdminApiKeyEntity>> cache = ImmutableMap.of();
     private int[] roundRobinIndex;
@@ -61,25 +64,44 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
                 // 根据apikey类型获取对应的apikey列表
                 List<AdminApiKeyEntity> adminApiKeyEntities = cache.get(apiTypes.typeNo);
 
-                // 根据apikey类型获取轮询下标
-                int index = roundRobinIndex[apiTypes.typeNo];
+                AdminApiKeyEntity adminApiKeyEntity = null;
+                int index;
 
-                // 下标即将越界置为0
-                if (index == Integer.MAX_VALUE) {
-                    index = 0;
+                int roundTime = 0;
+                do {
+                    // 根据apikey类型获取轮询下标
+                    index = roundRobinIndex[apiTypes.typeNo];
+
+                    // 下标即将越界置为0
+                    if (index == Integer.MAX_VALUE) {
+                        index = 0;
+                    }
+
+                    adminApiKeyEntity = adminApiKeyEntities.get(index % adminApiKeyEntities.size());
+
+                    roundRobinIndex[apiTypes.typeNo] = ++index;
+                    roundTime++;
+                    if(roundTime == adminApiKeyEntities.size()){
+                        return null;
+                    }
                 }
+                // 若当前请求类型是openai且轮询到的key是免费类型的，那么需要判断该key是否受限。(是则继续轮询，否则跳出轮询使用该key)
+                while(ApiType.OPENAI.equals(apiTypes) && adminApiKeyEntity.getIsFree() == 1
+                        && adminApiKeyRedisHelper.judgeOpenAiFreeKeyLimit(adminApiKeyEntity.getId()));
 
-                // 拿到当前的apikey
-                AdminApiKeyEntity adminApiKeyEntity = adminApiKeyEntities.get(index % adminApiKeyEntities.size());
                 apiKeyName = adminApiKeyEntity.getName();
 
+                // 若当前请求类型是openai的轮询到的key是免费类型的，那么需要记录限制信息（1分钟不能超过3次请求）
+                if(ApiType.OPENAI.equals(apiTypes) && adminApiKeyEntity.getIsFree() == 1){
+                    adminApiKeyRedisHelper.incrOpenAiFreeKeyLimit(adminApiKeyEntity.getId(), 1);
+                }
                 log.info("正在轮询获取apikey类型为{}的apikey, 当前下标为:{}, apikey为:{}", apiTypes.typeName, index, apiKeyName);
-                roundRobinIndex[apiTypes.typeNo] = ++index;
             }
         }
-
         return apiKeyName;
     }
+
+
 
     /**
      * 1 初始化数据并按照apikey的类型分组
@@ -93,7 +115,7 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
                 new QueryWrapper<AdminApiKeyEntity>().orderByDesc("priority")).stream()
                 .filter(item -> filterInValidOpenAiApiKey(item))
                 .collect(Collectors.groupingBy(AdminApiKeyEntity::getType)
-        );
+                );
         this.cache = ImmutableMap.copyOf(collect);
 
         if(CollectionUtils.isEmpty(this.cache)){

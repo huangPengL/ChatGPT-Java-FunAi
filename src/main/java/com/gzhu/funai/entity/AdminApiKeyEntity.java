@@ -56,4 +56,7 @@ public class AdminApiKeyEntity {
 
     @TableField(value = "expired_time")
     private LocalDate expiredTime;
+
+    @TableField(value = "is_free")
+    private Integer isFree;
 }

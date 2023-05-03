@@ -63,6 +63,9 @@ public class TranslationController {
         String apiKey = userApiKeyEntity != null && !StringUtils.isEmpty(userApiKeyEntity.getApikey())
                 ? userApiKeyEntity.getApikey()
                 : adminApiKeyService.roundRobinGetByType(ApiType.OPENAI);
+        if(apiKey == null){
+            return ReturnResult.error().codeAndMessage(ResultCode.ADMIN_APIKEY_NULL);
+        }
 
         // 调用对话接口
         ChatGPTReq gptReq = ChatGPTReq.builder()

@@ -24,5 +24,10 @@ public class RedisKeys {
      */
     public static final String USER_FILE_UPLOAD_DAILY_LIMIT = "chat:file:limit:%s";
 
+    /**
+     * 管理员用的openai免费key的限制次数 （apikeyId为mysql表admin_apikey中的id字段）
+     * admin:openai:freekey:limit:[apikeyId]
+     */
+    public static final String ADMIN_OPENAI_FREE_KEY_LIMIT = "admin:openai:freekey:limit:%s";
     private RedisKeys(){}
 }

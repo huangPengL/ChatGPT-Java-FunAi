@@ -15,6 +15,7 @@ import com.gzhu.funai.service.AdminApiKeyService;
 import com.gzhu.funai.service.ChatService;
 import com.gzhu.funai.service.PromptService;
 import com.gzhu.funai.service.UserApiKeyService;
+import com.gzhu.funai.utils.ResultCode;
 import com.gzhu.funai.utils.ReturnResult;
 import com.gzhu.funai.utils.SnowflakeIdGenerator;
 import lombok.extern.slf4j.Slf4j;
@@ -94,6 +95,9 @@ public class StreamChatController {
         String apiKey = userApiKeyEntity != null && !StringUtils.isEmpty(userApiKeyEntity.getApikey())
                 ? userApiKeyEntity.getApikey()
                 : adminApiKeyService.roundRobinGetByType(ApiType.OPENAI);
+        if(apiKey == null){
+            return ReturnResult.error().codeAndMessage(ResultCode.ADMIN_APIKEY_NULL);
+        }
 
         SessionType sessionType = SessionType.get(req.getSessionType());
         ChatGPTReq gptReq  = ChatGPTReq.builder()
@@ -128,6 +132,9 @@ public class StreamChatController {
         String apiKey = userApiKeyEntity != null && !StringUtils.isEmpty(userApiKeyEntity.getApikey())
                 ? userApiKeyEntity.getApikey()
                 : adminApiKeyService.roundRobinGetByType(ApiType.OPENAI);
+        if(apiKey == null){
+            return ReturnResult.error().codeAndMessage(ResultCode.ADMIN_APIKEY_NULL);
+        }
 
         SessionType sessionType = SessionType.get(req.getSessionType());
         ChatGPTReq gptReq  = ChatGPTReq.builder()
@@ -162,6 +169,9 @@ public class StreamChatController {
         String apiKey = userApiKeyEntity != null && !StringUtils.isEmpty(userApiKeyEntity.getApikey())
                 ? userApiKeyEntity.getApikey()
                 : adminApiKeyService.getBestByType(ApiType.OPENAI);
+        if(apiKey == null){
+            return ReturnResult.error().codeAndMessage(ResultCode.ADMIN_APIKEY_NULL);
+        }
 
         String storyType = req.getStoryType() == null ? "冒险": req.getStoryType();
         String gameStartPrompt = String.format(promptService.getByTopic(Prompt.GAME_START.topic), storyType);

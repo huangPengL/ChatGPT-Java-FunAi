@@ -159,7 +159,7 @@ public class FileChatServiceImpl implements FileChatService {
                 vectors.add(new PineconeVectorsReq(ids.get(i), dataSqlEntity.getLl().get(i), contents.get(i)));
             }
             PineconeInsertReq pineconeIndexReq = PineconeInsertReq.builder().vectors(vectors).namespace(collectionName).build();
-            result = PineconeApi.insertEmbedding(pineconeIndexReq, adminApiKeyService.getBestByType(ApiType.PINECONE));
+            result = PineconeApi.insertEmbedding(pineconeIndexReq, adminApiKeyService.roundRobinGetByType(ApiType.PINECONE));
             log.info("插入{}条数据成功！", result);
         }else {
             MilvusClientUtil.createCollection(8000, collectionName);

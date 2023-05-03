@@ -9,6 +9,8 @@ import com.gzhu.funai.service.SessionChatRecordService;
 import com.gzhu.funai.service.UserSessionService;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
 /**
  * @Author :wuxiaodong
  * @Date: 2023/4/24 19:18
@@ -16,8 +18,15 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ExpertChatHelper {
+    @Resource
+    SessionChatRecordService sessionChatRecordService;
+    @Resource
+    PromptService promptService;
+    @Resource
+    UserSessionService userSessionService;
+
     private ExpertChatHelper() {}
-    public static boolean handleSessionSystemRecord(UserSessionEntity userSessionEntity,SessionChatRecordService sessionChatRecordService,PromptService promptService) {
+    public boolean handleSessionSystemRecord(UserSessionEntity userSessionEntity) {
         String[] split = userSessionEntity.getSessionName().split(":");
         String prompt = promptService.getByTopic(split[split.length - 2]);
         SessionChatRecordEntity sessionChatRecordEntity = new SessionChatRecordEntity(
@@ -25,7 +34,7 @@ public class ExpertChatHelper {
         return sessionChatRecordService.save(sessionChatRecordEntity);
     }
 
-    public static String getExpertChatLanguage(Integer sessionId,UserSessionService userSessionService) {
+    public String getExpertChatLanguage(Integer sessionId) {
         UserSessionEntity userSessionEntity = userSessionService.getById(sessionId);
         String[] split = userSessionEntity.getSessionName().split(":");
         return split[split.length - 1];
