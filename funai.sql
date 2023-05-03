@@ -17,8 +17,10 @@ CREATE TABLE `admin_apikey`  (
   `total_usage` decimal(10, 2) NULL DEFAULT NULL COMMENT '使用额度',
   `expired_time` datetime NULL DEFAULT NULL COMMENT '过期时间',
   `update_time` datetime NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `comment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `is_free` tinyint(4) NULL DEFAULT 0 COMMENT '是否为免费的APIKey，0否，1是',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for prompt
