@@ -349,10 +349,10 @@ public class ChatServiceImpl implements ChatService{
     private Deque<SessionChatRecordEntity> getWindowRecordsBySessionTypeAndId(SessionType sessionType, Integer sessionId){
         switch (sessionType){
             case NORMAL_CHAT:
-                return normalWindowRecordCache.get(sessionId);
+                return new LinkedList<>(normalWindowRecordCache.get(sessionId));
             case EXPERT_CHAT:
             case GAME_CHAT:
-                return gameWindowRecordCache.get(sessionId);
+                return new LinkedList<>(gameWindowRecordCache.get(sessionId));
             default:
         }
         return new LinkedList<>();

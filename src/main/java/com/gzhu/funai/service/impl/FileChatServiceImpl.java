@@ -226,7 +226,7 @@ public class FileChatServiceImpl implements FileChatService {
     public ChatGPTResp chatWithFile(String userId, Integer sessionId, String message, String apiKey, ChatGPTReq chatGPTReq, boolean usePinecone) {
 
         String collectionName = "id_" + userId +"_" + sessionId;
-        Deque<SessionChatRecordEntity> windowRecords = windowRecordCache.get(sessionId);
+        Deque<SessionChatRecordEntity> windowRecords = new LinkedList<>(windowRecordCache.get(sessionId));
 
         // 优化问题
         String newQaPrompt = getStandaloneQuestion(message, windowRecords, sessionId, apiKey, userId);
@@ -290,7 +290,7 @@ public class FileChatServiceImpl implements FileChatService {
 
         /* ↓优化问题 */
         // 从缓存中获取[会话窗口]
-        Deque<SessionChatRecordEntity> windowRecords = windowRecordCache.get(sessionId);
+        Deque<SessionChatRecordEntity> windowRecords = new LinkedList<>(windowRecordCache.get(sessionId));
 
         String newQaPrompt = getStandaloneQuestion(message, windowRecords, sessionId, apiKey, userId);
 
