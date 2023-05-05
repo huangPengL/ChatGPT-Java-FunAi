@@ -260,7 +260,9 @@
 ## 🖋 参与贡献
 
 <a href="https://github.com/huangPengL/ChatGPT-Java-FunAi/graphs/contributors">
+  
   <img src="https://contrib.rocks/image?repo=huangPengL/ChatGPT-Java-FunAi" />
+  
 </a>
 
 ## 🤗 持续更新
