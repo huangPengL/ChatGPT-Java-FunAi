@@ -6,7 +6,7 @@
 
 ## 📖 简介
 - 欢迎来到FunAi的后端仓库，我们正在使用Java对现有AGI进行二次开发。
-- 目前是FunAi的第一个版本，已经接入ChatGPT和GPT-4实现一些有意思的应用，详细请见【项目亮点】 和 【功能展示】部分🎊
+- 目前是FunAi的第一个版本，已经接入ChatGPT和GPT-4实现一些有意思的应用，详细请见【项目亮点】 和 【功能展示】🎊
 - 作为一个新颖的Java学习项目，你可以从【快速开始】和【技术栈】部分得到有效的信息🎉
 - 我们的[FunAi网站](https://funai.vip/) 可免费使用，欢迎进入[FunAi](https://funai.vip/)一起玩耍吧（网站内有联系方式）~😆
 
@@ -122,7 +122,7 @@
   - Redis
   - 梦网云短信服务（无需手机注册功能可不填）
 
-- 配置向量库（二选一，推荐选Pinecone）
+- 配置向量库（二选一，推荐选Pinecone; 注意：openai embedding api的向量维度为1536）
 
   - **Pinecone向量库（第三方）**
 
@@ -263,6 +263,8 @@
   <img src="https://contrib.rocks/image?repo=huangPengL/ChatGPT-Java-FunAi" />
 </a>
 
+## 🤗 持续更新
+- [2023-05-03] 新增对openai免费Key限制所做的优化的轮询调度算法
 
 ## 🍺 赞助 & 合作
 
