@@ -33,10 +33,13 @@ public class TestFileChatService {
     private FileChatService fileChatService;
     @Resource
     private AdminApiKeyService adminApiKeyService;
+    @Resource
+    private PromptService promptService;
 
     @Test
     public void uploadFile(){
-
+        adminApiKeyService.load();
+        promptService.load();
         //生成File文件
         File file = new File("D:\\！！笔记\\000学习\\6-专业前沿学习\\003-人工智能\\09-NLP相关论文\\14-chatgpt\\ChatGPT-SpringBoot\\src\\test\\java\\com\\gzhu\\funai\\service\\ICTAI2022_9_28___终稿.pdf");
 

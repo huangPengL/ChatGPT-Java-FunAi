@@ -56,6 +56,7 @@ public class TestChatService {
 
     @Test
     public void chatSession(){
+        adminApiKeyService.load();
         ChatGPTReq chatGPTReq = ChatGPTReq.builder().build();
         ChatGPTResp resp = chatService.sessionChat(
                 "", 1, chatGPTReq,"我刚刚问了什么",
@@ -63,14 +64,19 @@ public class TestChatService {
         System.out.println(resp.getMessage());
     }
 
+    /**
+     * 改方法已废弃
+     */
     @Test
     public void testCreditGrants(){
+        adminApiKeyService.load();
         CreditGrantsResp openAiCreditGrantsResp = chatService.creditGrants(adminApiKeyService.roundRobinGetByType(ApiType.OPENAI));
         System.out.println(openAiCreditGrantsResp);
     }
 
     @Test
     public void testStreamSessionReq(){
+        adminApiKeyService.load();
         String msg = "你好";
         ChatGPTReq chatGPTReq = ChatGPTReq.builder()
                 .messages(ImmutableList.of(new ContextMessage(Role.USER.name, msg)))
@@ -93,6 +99,7 @@ public class TestChatService {
 
     @Test
     public void testStreamOneShotReq(){
+        adminApiKeyService.load();
         String msg = "你好呀";
         ChatGPTReq chatGPTReq = ChatGPTReq.builder()
                 .messages(ImmutableList.of(new ContextMessage(Role.USER.name, msg)))
