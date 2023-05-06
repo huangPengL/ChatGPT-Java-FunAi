@@ -8,7 +8,17 @@
 - 欢迎来到FunAi的后端仓库，我们正在使用Java对现有AGI进行二次开发。
 - 目前是FunAi的第一个版本，已经接入ChatGPT和GPT-4实现一些有意思的应用，详细请见【项目亮点】 和 【功能展示】🎊
 - 作为一个新颖的Java学习项目，你可以从【快速开始】和【技术栈】部分得到有效的信息🎉
-- 我们的[FunAi网站](https://funai.vip/) 可免费使用，欢迎进入[FunAi](https://funai.vip/)一起玩耍吧（网站内有联系方式）~😆
+- 我们的[FunAi网站](https://funai.vip/) 可免费使用，欢迎进入[FunAi](https://funai.vip/)一起玩耍吧（网站内有联系方式）😆
+
+
+
+## 🤗 持续更新
+
+- [2023-05-06] 新增文生图模型，体验地址：https://funai.space/#/ImgGenerate
+- [2023-05-05] 修改apiKey轮询bug
+- [2023-05-03] 新增对openai免费Key限制所做的优化的轮询调度算法
+
+
 
 
 ## ➰ 项目亮点
@@ -206,8 +216,17 @@
 
 <img src="mdImg/chat-2.png" width="85%" height="85%">
 
+✅ 文生图  
+
+<img src="mdImg/text2Img-1.png" width="85%" height="85%">
+
+<img src="mdImg/text2Img-2.png" width="85%" height="85%">
+
+<img src="mdImg/text2Img-3.png" width="85%" height="85%">
 
 ✅ PDF智能阅读（论文 / 简历 / 知识文档等）  
+
+<img src="mdImg/pdf-1.png" width="85%" height="85%">
 
 <img src="mdImg/pdf-2.png" width="85%" height="85%">
 
@@ -228,8 +247,9 @@
 
 <img src="mdImg/expert-2.png" width="85%" height="85%">
 
-
 ✅ 智能语言学家（更像人类的翻译官）
+
+<img src="mdImg/trans-1.png" width="85%" height="85%">
 
 <img src="mdImg/trans-2.png" width="85%" height="85%">
 
@@ -260,13 +280,14 @@
 ## 🖋 参与贡献
 
 <a href="https://github.com/huangPengL/ChatGPT-Java-FunAi/graphs/contributors">
-  
+
   <img src="https://contrib.rocks/image?repo=huangPengL/ChatGPT-Java-FunAi" />
-  
+
 </a>
 
-## 🤗 持续更新
-- [2023-05-03] 新增对openai免费Key限制所做的优化的轮询调度算法
+
+
+
 
 ## 🍺 赞助 & 合作
 
