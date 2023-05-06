@@ -60,10 +60,15 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
     public String roundRobinGetByType(ApiType apiTypes) {
         String apiKeyName = null;
         if(!CollectionUtils.isEmpty(cache)) {
-            synchronized (AdminApiKeyServiceImpl.class) {
-                // 根据apikey类型获取对应的apikey列表
-                List<AdminApiKeyEntity> adminApiKeyEntities = cache.get(apiTypes.typeNo);
+            // 根据apikey类型获取对应的apikey列表
+            List<AdminApiKeyEntity> adminApiKeyEntities = cache.get(apiTypes.typeNo);
 
+            // 只有一个key，无需轮询
+            if(adminApiKeyEntities.size() == 1){
+                return adminApiKeyEntities.get(0).getName();
+            }
+
+            synchronized (AdminApiKeyServiceImpl.class) {
                 AdminApiKeyEntity adminApiKeyEntity = null;
                 int index;
 
@@ -81,7 +86,7 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
 
                     roundRobinIndex[apiTypes.typeNo] = ++index;
                     roundTime++;
-                    if(roundTime == adminApiKeyEntities.size()){
+                    if(roundTime > adminApiKeyEntities.size()){
                         return null;
                     }
                 }
@@ -100,8 +105,6 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
         }
         return apiKeyName;
     }
-
-
 
     /**
      * 1 初始化数据并按照apikey的类型分组
@@ -123,7 +126,8 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
             return;
         }
 
-        this.roundRobinIndex = new int[this.cache.size()];
+        // 若apiKey类型一般不会超过26个，这边手动设置
+        this.roundRobinIndex = new int[26];
 
         log.info("加载AdminApiKey库缓存成功！, 有效的openai的apikey数量:{}",
                 cache.get(ApiType.OPENAI.typeNo).size());
