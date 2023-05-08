@@ -137,6 +137,16 @@
   - **Pinecone向量库（第三方）**
 
     1. 去Pinecone申请apikey
+    
+        1.1 [Pinecone官网](https://app.pinecone.io/) 进入官网注册你的账号 
+      
+        1.2 创建Index, 其中Pod Type可以自己选择
+        
+        <img src="mdImg/pinecone-1.png" width="85%" height="85%">
+      
+        1.3 在API Keys中可以找到你的API 密钥，还可以从仪表板检索您的环境和索引名称。（用户构建PINECONE_API_URL）
+      
+        1.4 [Pinecone Http请求学习文档](https://docs.pinecone.io/reference/describe_index_stats_post)
 
     2. 在`PineconeApi.java`中完善以下信息
 
