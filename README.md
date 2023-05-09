@@ -1,5 +1,5 @@
 # 🚀 FunAi - Based on ChatGPT and SpringBoot
-> 声明：FunAi项目只发布于 GitHub，基于 Apache-2.0 协议，免费且作为开源学习使用，未经本人同意不可用于商业项目。欢迎一起交流讨论，微信群、QQ群以及个人微信号在[FunAi](https://funai.vip/)中可以找到。若有长期定制合作意向请微信联系Nagin_Kim或邮件552122632@qq.com
+> 声明：FunAi项目只发布于 GitHub，基于 Apache-2.0 协议，免费且作为开源学习使用，未经本人同意不可用于商业项目。欢迎一起交流讨论，微信群、QQ群以及个人微信号在[FunAi](https://funai.vip/)中可以找到。若有长期定制合作或者内部高级版使用意向请微信联系Nagin_Kim或邮件552122632@qq.com
 
 > 致谢：感谢 「三岁药哥」 对本项目在API访问上的支持。感谢团队的四位成员贡献想法和代码[@塔哥](https://github.com/Nagin-Kim) [@俊哥](https://github.com/maomao12345678)
 [@东哥](https://github.com/Hudee666) [@伟哥](https://github.com/xing-wei-zeng) 
@@ -13,6 +13,7 @@
 
 
 ## 🤗 持续更新
+- [TODO] 魔鬼社区 & 高级文档咨询
 - [2023-05-07] 优化文生图模型，支持中文大白话描述，体验地址：https://funai.space/#/ImgGenerate
 - [2023-05-06] 新增文生图模型(不支持中文)
 - [2023-05-05] 修改apiKey轮询bug
