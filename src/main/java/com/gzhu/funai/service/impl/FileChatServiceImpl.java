@@ -26,6 +26,7 @@ import com.gzhu.funai.sse.OpenAISessionChatSSEListener;
 import com.gzhu.funai.utils.MilvusClientUtil;
 import com.gzhu.funai.utils.RecursiveCharacterTextSplitter;
 import com.gzhu.funai.utils.ResultCode;
+import com.gzhu.funai.utils.VerificationCodeGenerator;
 import io.milvus.client.MilvusServiceClient;
 import io.milvus.grpc.MutationResult;
 import io.milvus.grpc.SearchResults;
@@ -115,7 +116,7 @@ public class FileChatServiceImpl implements FileChatService {
 
             prefixStr = String.join(".", Arrays.copyOfRange(filename, 0, filename.length - 1));
 
-            file = File.createTempFile(prefixStr, "." + filename[filename.length-1]);
+            file = File.createTempFile(VerificationCodeGenerator.generateCode(6), "." + filename[filename.length-1]);
             multipartFile.transferTo(file);
 
             document = PDDocument.load(file);
