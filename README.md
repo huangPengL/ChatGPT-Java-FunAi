@@ -6,23 +6,28 @@
 
 ## 📖 简介
 - 欢迎来到FunAi的后端仓库，我们正在使用Java对现有AGI进行二次开发。
-- 目前是FunAi的第一个版本，已经接入ChatGPT和GPT-4实现一些有意思的应用，详细请见【项目亮点】 和 【功能展示】🎊
+- 目前是FunAi的第一个版本，已经接入ChatGPT、GPT-4、MJ-V4和SD实现一些有意思的应用，详细请见【项目亮点】 和 【功能展示】🎊
 - 作为一个新颖的Java学习项目，你可以从【快速开始】和【技术栈】部分得到有效的信息🎉
 - 我们的[FunAi网站](https://funai.vip/) 可免费使用，欢迎进入[FunAi](https://funai.vip/)一起玩耍吧（网站内有联系方式）😆
 
 
 
 ## 🤗 持续更新
+
+### FunAi线上项目
 - [TODO] 魔鬼社区 & 高级文档咨询
+- [2023-05-13] 新增个人巨大知识库交互式问答功能（PDF阅读-多文件版本）https://funai.space/#/ChatWithFile
+- [2023-05-13] 新增PDF阅读-单文件版本可浏览文件功能
 - [2023-05-07] 优化文生图模型，支持中文大白话描述，体验地址：https://funai.space/#/ImgGenerate
 - [2023-05-06] 新增文生图模型(不支持中文)
+
+### 本开源仓库
+- [2023-05-10] 修复文件名低于3个字符出现的服务错误问题
 - [2023-05-05] 修改apiKey轮询bug
 - [2023-05-03] 新增对openai免费Key限制所做的优化的轮询调度算法
 
 
-
-
-## ➰ 项目亮点
+## ➰ FunAi项目亮点
 
 ✅ ChatGPT聊天
 
@@ -43,7 +48,6 @@
   - TODO: 接入文生图模型（MidJourney / Stable Diffusion Model）
 
 
-
 ✅ PDF智能阅读（论文 / 简历 / 知识文档等）
 
   - 接入OpenAI的Embedding API，使用Pinecone/Milvus向量库存储向量。
@@ -53,7 +57,19 @@
   - 大文件上传（目前测试阶段暂时最多支持80页）
 
   - 多会话 + 文件保存 + 记录存储 + 记录管理（新增 / 删除） 
+  
+  - 源PDF对照阅读 + ChatGPT互动
 
+  - 多源PDF上传，集成庞大知识库
+
+
+✅ 智能画图
+
+  - 接入MJ-V4和Stable Diffusion
+
+  - 普通模式：用户输入端支持中文大白话描述，ChatGPT优化描述
+
+  - 专业模式：插件式提供海量更适合模型的英文prompt
 
 
 ✅ 账号管理
@@ -156,6 +172,10 @@
        ```
 
     3. 在MySQL数据库表admin_apikey中插入一条记录，type为4，name为Pinecone的apikey
+      
+        ```mysql
+        INSERT INTO `funai`.`admin_apikey` (`type`, `name`) VALUES (4, 'your pinecone apikey');
+        ```
 
   - Milvus向量库（本地搭建）
 
@@ -176,8 +196,10 @@
 🎈第三步：配置OpenAI的apikey
 
 1. 创建OpenAI账号，申请apikey
-2. 在MySQL数据库admin_apikey中插入一条记录，type为0，name为OpenAI的apikey
-
+2. 在MySQL数据库admin_apikey中插入一条记录，type为0，name为OpenAI的apikey；若该key为免费账号则is_free字段需要填写为1
+```mysql
+INSERT INTO `funai`.`admin_apikey` (`type`, `name`, `is_free`) VALUES ('0', 'your openai apikey', '1');
+```
 
 
 🎈第四步：启动 FunAiApplication  或  在测试类TestChatService中测试chatOneShot方法
@@ -195,7 +217,7 @@
 - 主语言：Java（JDK 1.8）
 - 开发框架：SpringBoot
 - 核心技术：
-  - 本地缓存LoadingCache
+  - 本地缓存Caffeine LoadingCache
   - SSE服务器发送事件
   - 算法（双端队列 + 滑动窗口 + 轮询负载均衡等）
   - Stream流
