@@ -1,8 +1,7 @@
 # 🚀 FunAi - Based on ChatGPT and SpringBoot
-> 声明：FunAi项目只发布于 GitHub，基于 Apache-2.0 协议，免费且作为开源学习使用，未经本人同意不可用于商业项目。欢迎一起交流讨论，微信群、QQ群以及个人微信号在[FunAi](https://funai.vip/)中可以找到。若有长期定制合作或者内部高级版使用意向请微信联系Nagin_Kim或邮件552122632@qq.com
+> 声明：FunAi项目只发布于 GitHub，基于 Apache-2.0 协议，免费且作为开源学习使用，未经本人同意不可用于商业项目。欢迎一起交流讨论，[微信群](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-1.png)、QQ群以及[个人微信号](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-3.png)在[FunAi](https://funai.vip/#/HomePage)中可以找到。若有长期定制合作或者内部高级版使用意向请微信联系Nagin_Kim或邮件552122632@qq.com
 
-> 致谢：感谢 「三岁药哥」 对本项目在API访问上的支持。感谢团队的四位成员贡献想法和代码[@塔哥](https://github.com/Nagin-Kim) [@俊哥](https://github.com/maomao12345678)
-[@东哥](https://github.com/Hudee666) [@伟哥](https://github.com/xing-wei-zeng) 
+> 致谢：感谢「三岁药哥」 对本项目在API访问上的支持；感谢北京某科研团队对本项目在GPU服务器上的支持；感谢团队的四位成员贡献想法和代码[@塔哥](https://github.com/Nagin-Kim) [@俊哥](https://github.com/maomao12345678) [@东哥](https://github.com/Hudee666) [@伟哥](https://github.com/xing-wei-zeng) 
 
 ## 📖 简介
 - 欢迎来到FunAi的后端仓库，我们正在使用Java对现有AGI进行二次开发。
@@ -16,9 +15,11 @@
 
 ### FunAi线上项目
 - [TODO] 魔鬼社区 & 高级文档咨询
-- [2023-05-13] 新增个人巨大知识库交互式问答功能（PDF阅读-多文件版本）https://funai.space/#/ChatWithFile
-- [2023-05-13] 新增PDF阅读-单文件版本可浏览文件功能
-- [2023-05-07] 优化文生图模型，支持中文大白话描述，体验地址：https://funai.space/#/ImgGenerate
+- [2023-05-16] 聊天界面可画图，聊天内容包含前缀[画]即可触发该功能。[点击体验](https://funai.vip/#/ChatHome/NormalChat)
+- [2023-05-16] 文字游戏可生成场景图，点击聊天条目中右侧的图片按钮即可触发该功能。[点击体验](https://funai.vip/#/GameChat)
+- [2023-05-13] 新增[PDF阅读-多文件版本] & 新增可选择对照多源文件功能 [点击体验](https://funai.vip/#/ChatWithFile)
+- [2023-05-13] 新增[PDF阅读-单文件]可对照源文件功能
+- [2023-05-07] 优化文生图模型，支持中文大白话描述。[点击体验](https://funai.vip/#/ImgGenerate)
 - [2023-05-06] 新增文生图模型(不支持中文)
 
 ### 本开源仓库
@@ -26,8 +27,9 @@
 - [2023-05-05] 修改apiKey轮询bug
 - [2023-05-03] 新增对openai免费Key限制所做的优化的轮询调度算法
 
+## ➰ FunAi线上项目亮点
 
-## ➰ FunAi项目亮点
+
 
 ✅ ChatGPT聊天
 
@@ -45,7 +47,9 @@
   
   - 语音聊天 + 语音播放
 
-  - TODO: 接入文生图模型（MidJourney / Stable Diffusion Model）
+  - 接入文生图模型（MidJourney / Stable Diffusion Model）
+
+
 
 
 ✅ PDF智能阅读（论文 / 简历 / 知识文档等）
@@ -58,9 +62,11 @@
 
   - 多会话 + 文件保存 + 记录存储 + 记录管理（新增 / 删除） 
   
-  - 源PDF对照阅读 + ChatGPT互动
+  - 对照源文件阅读 + ChatGPT互动
 
   - 多源PDF上传，集成庞大知识库
+
+
 
 
 ✅ 智能画图
@@ -72,17 +78,6 @@
   - 专业模式：插件式提供海量更适合模型的英文prompt
 
 
-✅ 账号管理
-
-  - 游客登录（IP / 浏览器指纹）
-
-  - 登录注册（手机号 / 账号密码 / 微信TODO）
-
-  - API-Key管理（用户可上传自己的API-Key，不受限制。否则使用系统的API-Key，会根据用户等级不同设置当日聊天限制）
-
-  - 用户等级管理（普通用户、vip用户、管理员、游客）
-
-
 
 ✅ 文字冒险游戏
 
@@ -90,7 +85,30 @@
 
   - 游戏记录存储 + 按键互动
 
-  - TODO: AI生成场景描述图片 + 背景音乐 + 多游戏选择
+  - AI生成场景描述图片
+
+  - TODO: 背景音乐 + 多游戏选择
+
+
+
+✅ 语言专家
+
+  - 多语翻译
+
+  - 语法修改
+
+    
+
+✅ 账号管理
+
+  - 游客登录（IP / 浏览器指纹）
+
+  - 登录注册（手机号 / 账号密码 / 微信TODO）
+
+  - 用户API-Key管理（用户可上传自己的API-Key，不受限制。否则使用系统的API-Key，会根据用户等级不同设置当日聊天限制）
+
+  - 用户等级管理（普通用户、vip用户、管理员、游客）
+
 
 
 
@@ -106,7 +124,9 @@
 
 ✅ 其它
 
-  - 轮询调度API-Key + 定时失效检测
+  - 系统API-Key池管理（优化多账号轮询调度算法，突破免费账号5次/分钟限制）
+
+  - API-Key额度查询 + 定时失效检测
 
   - 异步优化请求响应时间
 
@@ -133,6 +153,12 @@
 ✅ 口语练习 TODO
 
   - 多种真人语音对话
+
+
+
+✅ 魔鬼社区 TODO
+
+  - 创建AI机器人，在仅仅属于AI的社区中跟AI互动
 
 
 
@@ -210,7 +236,7 @@ INSERT INTO `funai`.`admin_apikey` (`type`, `name`, `is_free`) VALUES ('0', 'you
 
 ### 前端
 
-请移步 [FunAi前端仓库](https://github.com/huangPengL/ChatGPT-Vue-FunAi) 
+[FunAi前端仓库](https://github.com/huangPengL/ChatGPT-Vue-FunAi) 暂时未开放，敬请期待~
 
 ### 后端
 
@@ -245,6 +271,8 @@ INSERT INTO `funai`.`admin_apikey` (`type`, `name`, `is_free`) VALUES ('0', 'you
 
 ✅ ChatGPT聊天
 
+<img src="mdImg/chat-3.png" width="85%" height="85%">
+
 <img src="mdImg/chat-1.png" width="85%" height="85%">
 
 <img src="mdImg/chat-2.png" width="85%" height="85%">
@@ -264,7 +292,6 @@ INSERT INTO `funai`.`admin_apikey` (`type`, `name`, `is_free`) VALUES ('0', 'you
 <img src="mdImg/pdf-2.png" width="85%" height="85%">
 
 <img src="mdImg/pdf-3.png" width="85%" height="85%">
-
 
 ✅ 文字冒险游戏
 
