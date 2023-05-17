@@ -1,6 +1,5 @@
 package com.gzhu.funai.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.common.collect.ImmutableMap;
 import com.gzhu.funai.api.openai.ChatGPTApi;
@@ -20,8 +19,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CountDownLatch;
 import java.util.stream.Collectors;
 
 /**
@@ -107,20 +110,50 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
     }
 
     /**
-     * 1 初始化数据并按照apikey的类型分组
+     * 1 多线程判断apiKey是否能够被使用
      * 2 重置轮询下标
-     * 定时任务：每隔60分钟执行一次
+     * 定时任务：每隔1小时执行一次
      */
     @Scheduled(initialDelay = TimeInterval.ZERO, fixedRate = TimeInterval.ONE_HOUR)
     @Override
     public void load(){
-        Map<Integer, List<AdminApiKeyEntity>> collect = baseMapper.selectList(
-                new QueryWrapper<AdminApiKeyEntity>().orderByDesc("priority")).stream()
-                .filter(item -> filterInValidOpenAiApiKey(item))
-                .collect(Collectors.groupingBy(AdminApiKeyEntity::getType)
-                );
-        this.cache = ImmutableMap.copyOf(collect);
+        Map<Integer, List<AdminApiKeyEntity>> collect = new ConcurrentHashMap<>();
+        List<AdminApiKeyEntity> adminApiKeyEntityList = baseMapper.selectList(null);
 
+        // 使用减少计数辅助类让主线程等待多线程执行完毕
+        CountDownLatch countDownLatch = new CountDownLatch(adminApiKeyEntityList.size());
+        for(AdminApiKeyEntity adminApiKeyEntity: adminApiKeyEntityList){
+            queueThreadPool.execute(()->{
+                try{
+                    if(isValidOpenAiApiKey(adminApiKeyEntity)){
+                        if(!collect.containsKey(adminApiKeyEntity.getType())){
+                            collect.putIfAbsent(adminApiKeyEntity.getType(), new CopyOnWriteArrayList<>());
+                        }
+                        collect.get(adminApiKeyEntity.getType()).add(adminApiKeyEntity);
+                    }
+                }
+                finally {
+                    countDownLatch.countDown();
+                }
+            });
+        }
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            log.error("error{}", e.getMessage());
+            Thread.currentThread().interrupt();
+        }
+
+        // 排序
+        Map<Integer, List<AdminApiKeyEntity>> sortedCollect = collect.entrySet().stream().collect(
+                Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().stream()
+                    // 按照优先级字段进行降序排序 再按照id进行升序排序
+                    .sorted(Comparator.comparing(AdminApiKeyEntity::getPriority).reversed().thenComparing(AdminApiKeyEntity::getId))
+                    .collect(Collectors.toList())));
+
+
+        // 复制到缓存中
+        this.cache = ImmutableMap.copyOf(sortedCollect);
         if(CollectionUtils.isEmpty(this.cache)){
             this.roundRobinIndex = new int[2];
             return;
@@ -150,7 +183,7 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
      * @param adminApiKeyEntity
      * @return
      */
-    private boolean filterInValidOpenAiApiKey(AdminApiKeyEntity adminApiKeyEntity){
+    private boolean isValidOpenAiApiKey(AdminApiKeyEntity adminApiKeyEntity){
         // 非openai类型，放行
         if(!ApiType.OPENAI.typeNo.equals(adminApiKeyEntity.getType())){
             return true;
@@ -168,7 +201,7 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
             // 余额不足
             if(billingUsage.getTotalAmount().compareTo(billingUsage.getTotalUsage()) <= 0){
                 log.error("{}的额度使用完毕！", adminApiKeyEntity.getName());
-                queueThreadPool.execute(() -> baseMapper.deleteById(adminApiKeyEntity.getId()));
+                baseMapper.deleteById(adminApiKeyEntity.getId());
                 return false;
             }
 
@@ -177,14 +210,14 @@ public class AdminApiKeyServiceImpl extends ServiceImpl<AdminApiKeyMapper, Admin
             adminApiKeyEntity.setTotalUsage(billingUsage.getTotalUsage());
             adminApiKeyEntity.setExpiredTime(billingUsage.getExpiredTime());
 
-            queueThreadPool.execute(() -> baseMapper.updateById(adminApiKeyEntity));
+            baseMapper.updateById(adminApiKeyEntity);
             return true;
         }
         // 捕获 请求openai错误的异常, 删掉这个apiKey，不加载到缓存
         catch (BaseException e){
             log.error("apiKey:{}, error:{}",adminApiKeyEntity.getName(), e.getMsg());
             if(e.getCode() != OpenAiRespError.OPENAI_LIMIT_ERROR.code){
-                queueThreadPool.execute(() -> baseMapper.deleteById(adminApiKeyEntity.getId()));
+                baseMapper.deleteById(adminApiKeyEntity.getId());
             }
 
             return false;

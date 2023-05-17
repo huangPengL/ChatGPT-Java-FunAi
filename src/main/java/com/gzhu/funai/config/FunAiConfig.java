@@ -39,7 +39,7 @@ public class FunAiConfig {
     public TaskExecutor queueThreadPool() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         // 设置核心线程数
-        executor.setCorePoolSize(8);
+        executor.setCorePoolSize(15);
         // 设置最大线程数
         executor.setMaxPoolSize(1024);
         // 设置队列容量
