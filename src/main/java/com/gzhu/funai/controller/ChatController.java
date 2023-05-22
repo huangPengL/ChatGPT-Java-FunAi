@@ -1,6 +1,9 @@
 package com.gzhu.funai.controller;
 
+import com.google.common.collect.ImmutableList;
 import com.gzhu.funai.api.baidu.constant.BaiDuConst;
+import com.gzhu.funai.api.openai.enums.Role;
+import com.gzhu.funai.api.openai.req.ContextMessage;
 import com.gzhu.funai.entity.UserApiKeyEntity;
 import com.gzhu.funai.service.*;
 import com.gzhu.funai.service.helper.ExpertChatHelper;
@@ -90,6 +93,7 @@ public class ChatController {
         SessionType sessionType = SessionType.get(req.getSessionType());
         ChatGPTReq gptReq  = ChatGPTReq.builder()
                 .model(OpenAIConst.MODEL_NAME_CHATGPT_3_5)
+                .messages(ImmutableList.of(new ContextMessage(Role.USER.name, req.getMessage())))
                 .max_tokens(OpenAIConst.MAX_TOKENS - sessionType.maxContextToken)
                 .build();
         ChatGPTResp resp = chatService.oneShotChat(req.getUserId(), gptReq, apiKey);
