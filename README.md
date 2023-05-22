@@ -25,6 +25,7 @@
 - [2023-05-06] 新增文生图模型(不支持中文)
 
 ### 本开源仓库
+
 - [2023-05-10] 修复文件名低于3个字符出现的服务错误问题
 - [2023-05-05] 修改apiKey轮询bug
 - [2023-05-03] 新增对openai免费Key限制所做的优化的轮询调度算法
@@ -299,7 +300,7 @@ INSERT INTO `funai`.`admin_apikey` (`type`, `name`, `is_free`) VALUES ('0', 'you
 
 <img src="mdImg/game-2.png" width="85%" height="85%">
 
-<img src="mdImg/game-3.png" width="85%" height="85%">
+<img src="mdImg/game-4.png" width="85%" height="85%">
 
 
 ✅ 专家系统
@@ -324,6 +325,8 @@ INSERT INTO `funai`.`admin_apikey` (`type`, `name`, `is_free`) VALUES ('0', 'you
 ✅ 账号管理
 
 <img src="mdImg/user-1.png" width="85%" height="85%">
+
+<img src="mdImg/user-4.png" width="85%" height="85%">
 
 <img src="mdImg/user-2.png" width="85%" height="85%">
 
