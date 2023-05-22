@@ -292,9 +292,9 @@ INSERT INTO `funai`.`admin_apikey` (`type`, `name`, `is_free`) VALUES ('0', 'you
 
 <img src="mdImg/pdf-1.png" width="85%" height="85%">
 
-<img src="mdImg/pdf-2.png" width="85%" height="85%">
-
 <img src="mdImg/pdf-3.png" width="85%" height="85%">
+
+<img src="mdImg/pdf-2.png" width="85%" height="85%">
 
 ✅ 文字冒险游戏
 
