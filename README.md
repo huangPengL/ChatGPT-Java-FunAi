@@ -1,7 +1,7 @@
 # 🚀 FunAi - Based on ChatGPT and SpringBoot
-> 声明：FunAi项目只发布于 GitHub，基于 Apache-2.0 协议，免费且作为开源学习使用，未经本人同意不可用于商业项目。欢迎一起交流讨论，[微信群](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-1.png)、QQ群以及[个人微信号](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-3.png)在[FunAi](https://funai.vip/#/HomePage)中可以找到。若有长期定制合作或者内部高级版使用意向请微信联系Nagin_Kim或邮件552122632@qq.com
+> 声明：FunAi项目只发布于 GitHub，基于 Apache-2.0 协议，免费且作为开源学习使用，未经本人同意不可用于商业项目。欢迎一起交流讨论，[微信群](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-1.png) 以及[个人微信号](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-3.png)在[FunAi](https://funai.vip/#/HomePage)中可以找到。若有长期定制合作或者内部高级版使用意向请微信联系Nagin_Kim或邮件552122632@qq.com
 
-> 致谢：感谢「三岁药哥」 对本项目在API访问上的支持；感谢北京某科研团队对本项目在GPU服务器上的支持；感谢团队的四位成员贡献想法和代码[@塔哥](https://github.com/Nagin-Kim) [@俊哥](https://github.com/maomao12345678) [@东哥](https://github.com/Hudee666) [@伟哥](https://github.com/xing-wei-zeng) 
+> 致谢：感谢「三岁药哥」 和 [「广大昊神」](https://blog.42yeah.is) 对本项目在API访问上的支持；感谢北京某科研团队对本项目在GPU服务器上的支持；感谢团队的四位成员贡献想法和代码[@塔哥](https://github.com/Nagin-Kim) [@俊哥](https://github.com/maomao12345678) [@东哥](https://github.com/Hudee666) [@伟哥](https://github.com/xing-wei-zeng) 
 
 ## 📖 简介
 - 欢迎来到FunAi的后端仓库，我们正在使用Java对现有AGI进行二次开发。
@@ -14,7 +14,9 @@
 ## 🤗 持续更新
 
 ### FunAi线上项目
-- [TODO] 魔鬼社区 & 高级文档咨询
+- [TODO] 魔鬼社区 & 超越chatPDF的高级File咨询
+- [TODO] 迭代血球
+- [TODO] 人心镜面
 - [2023-05-16] 聊天界面可画图，聊天内容包含前缀[画]即可触发该功能。[点击体验](https://funai.vip/#/ChatHome/NormalChat)
 - [2023-05-16] 文字游戏可生成场景图，点击聊天条目中右侧的图片按钮即可触发该功能。[点击体验](https://funai.vip/#/GameChat)
 - [2023-05-13] 新增[PDF阅读-多文件版本] & 新增可选择对照多源文件功能 [点击体验](https://funai.vip/#/ChatWithFile)
@@ -385,7 +387,7 @@ FunAi is licensed under the Apache-2.0 License. See the [LICENSE](https://github
 
 ## 免责声明 Disclaimers
 
-The code is for demo and testing only. 代码仅用于演示和测试。
+The code is for demo and testing only. 代码仅用于演示和测试。用于商业用途，请联系授权并注明来源。
 
 ⚠⚠⚠请勿将本系统代码用于商业用途！
 
