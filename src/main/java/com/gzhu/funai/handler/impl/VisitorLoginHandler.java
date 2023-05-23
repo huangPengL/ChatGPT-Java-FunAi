@@ -50,10 +50,8 @@ public class VisitorLoginHandler implements LoginHandler {
                     .status((byte) 0)
                     .level(UserLevel.VISITOR.levelNo)
                     .build();
-
-            UserEntity finalUserEntity = userEntity;
-            queueThreadPool.execute(() ->
-                    userService.save(finalUserEntity));
+   
+            userService.save(userEntity);
         }
 
         // 检验账户锁定情况
