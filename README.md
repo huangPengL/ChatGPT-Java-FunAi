@@ -1,7 +1,7 @@
 # 🚀 FunAi - Based on ChatGPT and SpringBoot
 > 声明：FunAi项目只发布于 GitHub，基于 Apache-2.0 协议，免费且作为开源学习使用，未经本人同意不可用于商业项目。欢迎一起交流讨论，[微信群](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-1.png) 以及[个人微信号](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-3.png)在[FunAi](https://funai.vip/#/HomePage)中可以找到。若有长期定制合作或者内部高级版使用意向请微信联系Nagin_Kim或邮件552122632@qq.com
 
-> 致谢：感谢「三岁药哥」 和 [「广大昊神」](https://blog.42yeah.is) 对本项目在API访问上的支持；感谢北京某科研团队对本项目在GPU服务器上的支持；感谢团队的四位成员贡献想法和代码[@塔哥](https://github.com/Nagin-Kim) [@俊哥](https://github.com/maomao12345678) [@东哥](https://github.com/Hudee666) [@伟哥](https://github.com/xing-wei-zeng) 
+> 致谢：感谢「三岁药哥」 和 [「广大昊神」](https://blog.42yeah.is) 对本项目在API访问上的支持；感谢北京某科研团队对本项目在服务器上的支持；感谢团队的四位成员贡献想法和代码[@塔哥](https://github.com/Nagin-Kim) [@俊哥](https://github.com/maomao12345678) [@东哥](https://github.com/Hudee666) [@伟哥](https://github.com/xing-wei-zeng) 
 
 ## 📖 简介
 - 欢迎来到FunAi的后端仓库，我们正在使用Java对现有AGI进行二次开发。
@@ -141,16 +141,7 @@
 
 ✅ 智能简历 TODO
 
-  - 创建简历 -> 专业模板 -> 智能优化
-
   - ChatGPT智能分析简历
-
-  - 根据简历内容进行对应的面试，模拟真实面试过程
-
-  - 支持多次面试
-
-  - 自定义模板导出
-
 
 
 ✅ 口语练习 TODO
@@ -161,7 +152,7 @@
 
 ✅ 魔鬼社区 TODO
 
-  - 创建AI机器人，在仅仅属于AI的社区中跟AI互动
+  - 跟AI魔鬼无限互动吧
 
 
 
