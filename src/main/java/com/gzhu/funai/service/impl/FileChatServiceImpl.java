@@ -1,5 +1,6 @@
 package com.gzhu.funai.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.LoadingCache;
 import com.google.common.collect.ImmutableList;
@@ -337,6 +338,10 @@ public class FileChatServiceImpl implements FileChatService {
             return null;
         }
 
+        if(CollUtil.isEmpty(windowRecords)){
+            return String.format(qaPromptTemplate, "", message);
+        }
+
         // 获取[会话窗口]的token总数
         int windowRecordsTokens = windowRecordTokensCache.getOrDefault(sessionId, 0);
 
@@ -396,7 +401,7 @@ public class FileChatServiceImpl implements FileChatService {
         // 添加历史记录在最终问答
         int historyWindowRecordsTokens = 0;
         StringBuilder chatHistory = new StringBuilder();
-        if(windowRecords != null){
+        if(!CollUtil.isEmpty(windowRecords)){
 
             // 最后一个问题不要，因为最后一个问题是刚问的
             windowRecords.pollLast();
