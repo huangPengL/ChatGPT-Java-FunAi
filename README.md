@@ -1,14 +1,14 @@
 # 🚀 FunAi - Based on ChatGPT and SpringBoot
-> 声明：FunAi项目只发布于 GitHub，基于 Apache-2.0 协议，免费且作为开源学习使用，未经本人同意不可用于商业项目。欢迎一起交流讨论，[微信群](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-1.png) 以及[个人微信号](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-3.png)在[FunAi](https://funai.vip/#/HomePage)中可以找到。若有长期定制合作或者内部高级版使用意向请微信联系[funaiboy](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/cooperate-1.png
+> 声明：FunAi项目只发布于 GitHub，基于 Apache-2.0 协议，免费且作为开源学习使用，未经本人同意不可用于商业项目。欢迎加微信群](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-1.png) 和[个人微信号](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/contact-3.png)交流讨论。若有长期定制合作或者内部高级版使用意向请微信联系[funaiboy](https://funai-hpl.oss-cn-guangzhou.aliyuncs.com/homePage/cooperate-1.png
 )或邮件552122632@qq.com
 
 > 致谢：感谢「三岁药哥」 和 [「广大昊神」](https://blog.42yeah.is) 对本项目在API访问上的支持；感谢相关合作伙伴对本项目的其他基础支持；感谢团队的四位成员贡献想法和代码[@塔哥](https://github.com/Nagin-Kim) [@俊哥](https://github.com/maomao12345678) [@东哥](https://github.com/Hudee666) [@伟哥](https://github.com/xing-wei-zeng) 
 
 ## 📖 简介
 - 欢迎来到FunAi的后端仓库，我们正在使用Java对现有AGI进行二次开发。
-- 目前是FunAi的第一个版本，已经接入ChatGPT、GPT-4、MJ-V4和SD实现一些有意思的应用，详细请见【项目亮点】 和 【功能展示】🎊
+- 目前的FunAi已经接入ChatGPT、GPT-4、MJ-V4和SD实现一些有意思的应用，详细请见【项目亮点】 和 【功能展示】🎊
 - 作为一个新颖的Java学习项目，你可以从【快速开始】和【技术栈】部分得到有效的信息🎉
-- 我们的[FunAi网站](https://funai.vip/) 可免费使用，欢迎进入[FunAi](https://funai.vip/)一起玩耍吧（网站内有联系方式）😆
+- [FunAi网站](https://funai.vip/) 完全免费使用，欢迎进入[FunAi](https://funai.vip/)一起玩耍吧😆
 
 
 
@@ -18,11 +18,15 @@
 - [TODO] 魔鬼社区 & 超越chatPDF的高级File咨询
 - [TODO] 迭代血球
 - [TODO] 人心镜面
+- [2023-06-18] 新增AI助手功能，支持多语言，大量预设prompt的专一领域的AI帮你解决问题。[点击体验](https://funai.vip/#/AIChatHome)
+- [2023-06-18] PDF阅读可以上传word、excel、ppt等格式的文件。 [点击体验](https://funai.vip/#/ChatWithFile)
+- [2023-06-07] 新增Stable Diffusion画图功能。[点击体验](https://funai.vip/#/ImgGenerate)
+- [2023-06-07] 新增AI客服，24/7全天候服务，多语言支持，拟人化交互；新增人工客服。 [点击体验](https://funai.vip/#/AssitantIndex)
 - [2023-05-16] 聊天界面可画图，聊天内容包含前缀[画]即可触发该功能。[点击体验](https://funai.vip/#/ChatHome/NormalChat)
 - [2023-05-16] 文字游戏可生成场景图，点击聊天条目中右侧的图片按钮即可触发该功能。[点击体验](https://funai.vip/#/GameChat)
-- [2023-05-13] 新增[PDF阅读-多文件版本] & 新增可选择对照多源文件功能 [点击体验](https://funai.vip/#/ChatWithFile)
+- [2023-05-13] 新增[PDF阅读-多文件版本] & 新增可选择对照多源文件功能。[点击体验](https://funai.vip/#/ChatWithFile)
 - [2023-05-13] 新增[PDF阅读-单文件]可对照源文件功能
-- [2023-05-07] 优化文生图模型，支持中文大白话描述。[点击体验](https://funai.vip/#/ImgGenerate)
+- [2023-05-07] 优化文生图模型MJ-V4，支持中文大白话描述。[点击体验](https://funai.vip/#/ImgGenerate)
 - [2023-05-06] 新增文生图模型(不支持中文)
 
 ### 本开源仓库
@@ -53,6 +57,8 @@
 
   - 接入文生图模型（MidJourney / Stable Diffusion Model）
 
+  - 大量多语言支持的AI助手
+
 
 
 
@@ -62,13 +68,24 @@
 
   - PDF解析 + 递归分词文段抽取 + 文本向量化 + 向量语义匹配 + 召回知识库相似文本匹配
 
-  - 大文件上传（目前测试阶段暂时最多支持80页）
+  - 大文件上传（目前线上项目暂时最多支持80页，实际可支持上千页）
 
-  - 多会话 + 文件保存 + 记录存储 + 记录管理（新增 / 删除） 
+  - 多会话 + 文件保存 + 记录存储 + 记录管理
   
   - 对照源文件阅读 + ChatGPT互动
 
   - 多源PDF上传，集成庞大知识库
+
+  - 支持各种文件类型（Word、Excel、PPT、PDF等）
+
+
+
+✅ AI客服
+
+- 多语言支持
+- 24/7全天候服务：无论是白天还是夜晚，AI客服都可以提供不间断的服务，满足用户随时随地的需求。
+- 拟人化交互，擅长用表情符号或动画来表达情感
+- 转接人工客服 TODO
 
 
 
@@ -148,8 +165,6 @@
 ✅ 口语练习 TODO
 
   - 多种真人语音对话
-
-
 
 ✅ 魔鬼社区 TODO
 
@@ -242,14 +257,14 @@ INSERT INTO `funai`.`admin_apikey` (`type`, `name`, `is_free`) VALUES ('0', 'you
   - SSE服务器发送事件
   - 算法（双端队列 + 滑动窗口 + 轮询负载均衡等）
   - Stream流
+  - JUC
+  - WebSocket
   - 锁机制
   - 定时任务
   - 拦截器（登录拦截/管理员权限/限流/功能限制）
   - 过滤器（跨域/全局日志）
   - 全局异常处理器 
   - JWT用户鉴权
-  - Swagger
-
 - 数据库：MySQL 5.7、Pinecone、Milvus 2.2.5
 - 中间件：Redis 7.0.11, MyBatis-Plus
 - 对象存储： 阿里云OSS
@@ -265,6 +280,8 @@ INSERT INTO `funai`.`admin_apikey` (`type`, `name`, `is_free`) VALUES ('0', 'you
 ## 🤖 功能展示
 
 ✅ ChatGPT聊天
+
+<img src="mdImg/chat-4.png" width="85%" height="85%">
 
 <img src="mdImg/chat-3.png" width="85%" height="85%">
 
@@ -294,13 +311,11 @@ INSERT INTO `funai`.`admin_apikey` (`type`, `name`, `is_free`) VALUES ('0', 'you
 
 <img src="mdImg/game-4.png" width="85%" height="85%">
 
+✅ AI客服
 
-✅ 专家系统
+<img src="mdImg/assistant-1.png" width="85%" height="85%">
 
-- 多领域（投资、广告、小说、计算机、诗歌、哲学、医学、心理学等） + 多语言（中、英、日、韩...等）
-
-
-<img src="mdImg/expert-2.png" width="85%" height="85%">
+<img src="mdImg/assistant-2.png" width="85%" height="85%">
 
 ✅ 智能语言学家（更像人类的翻译官）
 
