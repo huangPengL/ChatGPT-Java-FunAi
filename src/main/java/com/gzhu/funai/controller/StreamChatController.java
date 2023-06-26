@@ -2,8 +2,11 @@ package com.gzhu.funai.controller;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.LoadingCache;
+import com.google.common.collect.ImmutableList;
 import com.gzhu.funai.api.openai.constant.OpenAIConst;
+import com.gzhu.funai.api.openai.enums.Role;
 import com.gzhu.funai.api.openai.req.ChatGPTReq;
+import com.gzhu.funai.api.openai.req.ContextMessage;
 import com.gzhu.funai.dto.StartGameStreamSessionRequest;
 import com.gzhu.funai.dto.StreamOneShotChatRequest;
 import com.gzhu.funai.dto.StreamSessionChatRequest;
@@ -139,6 +142,7 @@ public class StreamChatController {
         SessionType sessionType = SessionType.get(req.getSessionType());
         ChatGPTReq gptReq  = ChatGPTReq.builder()
                 .model(OpenAIConst.MODEL_NAME_CHATGPT_3_5)
+                .messages(ImmutableList.of(new ContextMessage(Role.USER.name, req.getMessage())))
                 .max_tokens(OpenAIConst.MAX_TOKENS - sessionType.maxContextToken)
                 .stream(true)
                 .build();
